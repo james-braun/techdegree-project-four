@@ -1,0 +1,21 @@
+.gallery {
+    max-width: 20em;
+    margin: 12.5em auto;
+    display: grid;
+    grid-template-columns: 12.5em;
+    grid-gap: 4em;
+}
+
+@media (min-width: 760px) {
+    .gallery {
+        max-width: 47.5em;
+        grid-template-columns: 12.5em 12.5em 12.5em;
+    }
+}
+
+@media (min-width: 1024px) {
+    .gallery {
+        max-width: 64em;
+        grid-template-columns: 12.5em 12.5em 12.5em 12.5em;
+    }
+}
