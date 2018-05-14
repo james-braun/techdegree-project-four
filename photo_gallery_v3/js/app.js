@@ -11,3 +11,8 @@ document.getElementById('search-bar').appendChild(searchElement);
 lightbox.option({
     'alwaysShowNavOnTouchDevices': true
 })
+
+$('a').each(function() {
+    let varible = $(this).attr('data-title');
+    console.log(varible);
+});
