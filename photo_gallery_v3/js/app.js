@@ -14,5 +14,6 @@ lightbox.option({
 
 $('a').each(function() {
     let varible = $(this).attr('data-title');
-    console.log(varible);
+    varible = varible.toUpperCase();
+    $(this).css('display', 'inline');
 });
