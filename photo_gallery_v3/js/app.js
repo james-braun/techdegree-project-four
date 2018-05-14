@@ -7,3 +7,7 @@ searchElement.setAttribute('id', 'search');
 searchElement.setAttribute('name', 'user_search');
 searchElement.setAttribute('placeholder', 'Search');
 document.getElementById('search-bar').appendChild(searchElement);
+
+lightbox.option({
+    'alwaysShowNavOnTouchDevices': true
+})
