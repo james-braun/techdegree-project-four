@@ -1,6 +1,17 @@
+h1 {
+    text-align: center;  
+}
+
+#search {
+    display: inline;
+    padding: 0 auto;
+    font-size: 1em;
+    height: 1.5em;
+}
+
 .container {
     max-width: 12.5em;
-    margin: 12.5em auto;
+    margin: 4em auto;
     display: grid;
     grid-template-columns: 12.5em;
     grid-gap: 4em;
