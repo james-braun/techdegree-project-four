@@ -8,26 +8,25 @@ searchElement.setAttribute('placeholder', 'Search');
 searchElement.setAttribute('value', '');
 document.getElementById('search-bar').appendChild(searchElement);
 
-// lightbox.option({
-//      'alwaysShowNavOnTouchDevices': true
-// });
+lightbox.option({
+     'alwaysShowNavOnTouchDevices': true
+});
 
 $(document).ready(function() {
-    let text = '';
+    let search_text = '';
     $('input').keydown(function ( event ) {
-        let keyPressed = String.fromCharCode(event.which);
+        let key_pressed = String.fromCharCode(event.which);
         if (event.which == 8) {
-            text = text.slice(0, -1);
+            search_text = search_text.slice(0, -1);
         } else {
-            text = text + keyPressed.toUpperCase();
+            search_text = search_text + key_pressed.toUpperCase();
         };
-    
-        
+           
         $('a').each(function() {
-            let varible = $(this).attr('data-title');
-            if (varible) {
-                varible = varible.toUpperCase();
-                if (varible.includes(text) === true) {
+            let caption_string = $(this).attr('data-title');
+            if (caption_string) {
+                caption_string = caption_string.toUpperCase();
+                if (caption_string.includes(search_text) === true) {
                     $(this).css('display', 'inline');
                 } else {
                     $(this).css('display', 'none');
