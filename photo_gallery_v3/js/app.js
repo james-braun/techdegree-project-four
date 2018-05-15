@@ -9,7 +9,7 @@ searchElement.setAttribute('placeholder', 'Search');
 searchElement.setAttribute('onkeypress', 'getInput()');
 searchElement.setAttribute('value', '');
 document.getElementById('search-bar').appendChild(searchElement);
-//document.getElementById('search').onkeypress = function() {getInput()};
+
 lightbox.option({
     'alwaysShowNavOnTouchDevices': true
 })
