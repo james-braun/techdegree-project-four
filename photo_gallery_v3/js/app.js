@@ -16,7 +16,7 @@ $(document).ready(function() {
     let text = '';
     $('input').keydown(function ( event ) {
         let keyPressed = String.fromCharCode(event.which);
-        if (event.which == 8) {
+        if (event.which === 8) {
             text = text.slice(0, -1);
         } else {
             text = text + keyPressed.toUpperCase();
@@ -29,7 +29,7 @@ $(document).ready(function() {
                 //console.log('varible ' + varible);
                 varible = varible.toUpperCase();
                 //console.log('varible ' + varible);
-                if (varible.includes(text) == true) {
+                if (varible.includes(text) === true) {
                     $(this).css('display', 'inline');
                 } else {
                     $(this).css('display', 'none');
