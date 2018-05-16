@@ -6,6 +6,8 @@ searchElement.setAttribute('type', 'text');
 searchElement.setAttribute('id', 'search');
 searchElement.setAttribute('placeholder', 'Search');
 searchElement.setAttribute('value', '');
+searchElement.setAttribute('name', 'user_search');
+searchElement.setAttribute('autocomplete', 'off');
 document.getElementById('search-bar').appendChild(searchElement);
 
 lightbox.option({
@@ -23,17 +25,16 @@ $(document).ready(function() {
                 search_text = search_text.slice(0, -1);
             }
             if (event.keyCode == 13) {
-                $('#search-bar').submit(function( event ) {
-                    event.preventDefault();
-                });
-                //search_text = $('input').value;
+                event.preventDefault();
+                search_text = search_text.slice(0, -1);
+
             } 
         }
 
         if (event.type == 'keypress') {
             search_text = search_text + key_pressed;
         }            
-        console.log(search_text);
+        //console.log(search_text);
         search_text = search_text.toUpperCase();
         
         $('a').each(function() {
