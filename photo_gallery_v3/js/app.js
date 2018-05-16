@@ -30,8 +30,8 @@ $(document).ready(function() {
                     $(this).css('display', 'inline');
                 } else {
                     $(this).css('display', 'none');
-                };
-            };
+                }
+            }
         });
     });
 });
