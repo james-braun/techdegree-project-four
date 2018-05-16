@@ -21,7 +21,8 @@ $(document).ready(function() {
         } else {
             search_text = search_text + key_pressed.toUpperCase();
         };
-           
+        search_text = search_text.replace(/[^a-zA-Z0-9,.! ]/, '');   
+
         $('a').each(function() {
             let caption_string = $(this).attr('data-title');
             if (caption_string) {
