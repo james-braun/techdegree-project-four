@@ -21,6 +21,10 @@ $(document).ready(function() {
         if (event.type == 'keydown') {
             if (event.keyCode == 8) {
                 search_text = search_text.slice(0, -1);
+            }
+            if (event.keyCode == 13) {
+                event.preventDefault();
+                $('input').value = search_text;
             } 
         }
 
