@@ -25,7 +25,7 @@ $(document).ready(function() {
             if (event.keyCode == 8) {
                 search_text = search_text.slice(0, -1);
             }
-            if ((event.keyCode == 13) || (event.keyCode == 36) || (event.keyCode == 38)) {
+            if ((event.keyCode == 13) || (event.keyCode == 36) || (event.keyCode == 37) || (event.keyCode == 38)) {
                 event.preventDefault();
                 key_pressed = null;
             } 
