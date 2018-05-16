@@ -21,10 +21,11 @@ $(document).ready(function() {
         let key_pressed = String.fromCharCode(event.which);
 
         if (event.type == 'keydown') {
+            console.log(event.keyCode);
             if (event.keyCode == 8) {
                 search_text = search_text.slice(0, -1);
             }
-            if (event.keyCode == 13) {
+            if ((event.keyCode == 13) || (event.keyCode == 36) || (event.keyCode == 38)) {
                 event.preventDefault();
                 key_pressed = null;
             } 
@@ -33,10 +34,9 @@ $(document).ready(function() {
         if (event.type == 'keypress') {
             search_text = search_text + key_pressed;
         }      
-
        
         search_text = search_text.toUpperCase();
-        console.log(search_text);
+        
         $('a').each(function() {
             let caption_string = $(this).attr('data-title');
             if (caption_string) {
