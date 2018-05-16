@@ -23,15 +23,17 @@ $(document).ready(function() {
                 search_text = search_text.slice(0, -1);
             }
             if (event.keyCode == 13) {
-                event.preventDefault();
-                $('input').value = search_text;
+                $('#search-bar').submit(function( event ) {
+                    event.preventDefault();
+                });
+                //search_text = $('input').value;
             } 
         }
 
         if (event.type == 'keypress') {
             search_text = search_text + key_pressed;
         }            
-        
+        console.log(search_text);
         search_text = search_text.toUpperCase();
         
         $('a').each(function() {
