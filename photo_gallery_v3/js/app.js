@@ -26,17 +26,17 @@ $(document).ready(function() {
             }
             if (event.keyCode == 13) {
                 event.preventDefault();
-                search_text = search_text.slice(0, -1);
-
+                key_pressed = null;
             } 
         }
 
         if (event.type == 'keypress') {
             search_text = search_text + key_pressed;
-        }            
-        //console.log(search_text);
+        }      
+
+       
         search_text = search_text.toUpperCase();
-        
+        console.log(search_text);
         $('a').each(function() {
             let caption_string = $(this).attr('data-title');
             if (caption_string) {
