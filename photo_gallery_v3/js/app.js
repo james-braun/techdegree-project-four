@@ -29,6 +29,10 @@ $(document).ready(function() {
         if (event.ctrlKey) {
             preventDefault();
         }
+
+        if (event.metaKey && (key_pressed != 91) && (key_pressed != 92)) {
+            preventDefault();
+        }
         
         if (event.type == 'keydown') {
             if (event.keyCode == 8) {
