@@ -24,6 +24,11 @@ $(document).ready(function() {
     $('input').bind("keypress keydown click", function ( event ) {
         
         let key_pressed = String.fromCharCode(event.which);
+        console.log(key_pressed.length);
+        
+        if (event.ctrlKey) {
+            preventDefault();
+        }
         
         if (event.type == 'keydown') {
             if (event.keyCode == 8) {
@@ -65,7 +70,7 @@ $(document).ready(function() {
             }    
         }
         
-        if (event.type == 'keypress') {
+        if ((event.type == 'keypress') && (key_pressed !== '')) {
             console.clear();
             console.log(key_pressed);
             if ((navigator.userAgent.search("Firefox") >= 0) && (flag)) {
