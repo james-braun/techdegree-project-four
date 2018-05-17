@@ -60,7 +60,7 @@ $(document).ready(function() {
             index += 1;
         }  
                 
-        if (event.type == 'click'){
+        if (event.type == 'click') {
             let val = document.getElementById('search').value;
             index = val.slice(0, document.getElementById('search').selectionStart).length;
         }
