@@ -56,14 +56,14 @@ $(document).ready(function() {
             } else
             if ((event.keyCode == 37) && (index > 0)) {
                 index -= 1;
-                flag = true
+                flag = true;
             } else
             if ((event.keyCode == 35) || (event.keyCode == 40)) {
                 index = search_text.length;
-                flag = true
+                flag = true;
             } else 
             if ((event.keyCode == 39) && (index < search_text.length)) {
-                index += 1
+                index += 1;
                 flag = true;
             } else
             if (event.keyCode == 46) {
