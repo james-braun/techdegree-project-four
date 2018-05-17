@@ -14,17 +14,22 @@ lightbox.option({
      'alwaysShowNavOnTouchDevices': true
 });
 
+let flag = false;
+console.log('flag = ' + flag);
+
 $(document).ready(function() {
     let search_text = '';
     let index = 0;
+    let flag = false;
     $('input').bind("keypress keydown click", function ( event ) {
         
         let key_pressed = String.fromCharCode(event.which);
-
+        
         if (event.type == 'keydown') {
             if (event.keyCode == 8) {
+                flag = true;
                 if ((search_text.length > index) && (index > 0)) {
-                    search_text = search_text.substring(0, index) + search_text.substring(index + 1);
+                    search_text = search_text.substring(0, index - 1) + search_text.substring(index);
                     index -= 1;
                 } else
                 if ((search_text.length == index) && (index > 0)) {
@@ -34,29 +39,41 @@ $(document).ready(function() {
             } else
             if (event.keyCode == 13) {
                 event.preventDefault();
-                key_pressed = null;
+                flag = true;
             } else 
             if ((event.keyCode == 36) || (event.keyCode == 38)) {
-                index = 1;
+                index = 0;
+                flag = true;
             } else
             if ((event.keyCode == 37) && (index > 0)) {
                 index -= 1;
+                flag = true
             } else
             if ((event.keyCode == 35) || (event.keyCode == 40)) {
                 index = search_text.length;
+                flag = true
             } else 
             if ((event.keyCode == 39) && (index < search_text.length)) {
                 index += 1
+                flag = true;
             } else
             if (event.keyCode == 46) {
+                flag = true;
                 if (index < search_text.length) {
                     search_text = search_text.substring(0, index) + search_text.substring(index + 1);
                 }
-            }
+            }    
         }
         
         if (event.type == 'keypress') {
-            search_text = search_text.slice(0, index) + key_pressed + search_text.slice(index);           
+            console.clear();
+            console.log(key_pressed);
+            if ((navigator.userAgent.search("Firefox") >= 0) && (flag)) {
+                key_pressed = '';
+                flag = false;
+                index -= 1;
+            }
+            search_text = search_text.slice(0, index) + key_pressed + search_text.slice(index);
             index += 1;
         }  
                 
@@ -66,7 +83,7 @@ $(document).ready(function() {
         }
        
         search_text = search_text.toUpperCase();
-        console.log('index ' + index + ' search text ' + search_text + ' length ' + search_text.length);
+        console.log('index ' + index + ' search text ' + search_text + ' length ' + search_text.length + ' key pressed ' + event.keyCode);
         $('a').each(function() {
             let caption_string = $(this).attr('data-title');
             if (caption_string) {
