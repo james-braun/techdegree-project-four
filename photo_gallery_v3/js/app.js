@@ -21,7 +21,7 @@ $(document).ready(function() {
     let search_text = '';
     let index = 0;
     let flag = false;
-    $('input').bind("keypress keydown click", function ( event ) {
+    $('input').bind("keypress keydown click touchstart", function ( event ) {
         
         let key_pressed = String.fromCharCode(event.which);
         console.log(key_pressed.length);
@@ -91,6 +91,11 @@ $(document).ready(function() {
             index = val.slice(0, document.getElementById('search').selectionStart).length;
         }
        
+        if (event.type == 'touchstart') {
+            let val = document.getElementById('search').value;
+            index = val.slice(0, document.getElementById('search').selectionStart).length;
+        }
+
         search_text = search_text.toUpperCase();
         console.log('index ' + index + ' search text ' + search_text + ' length ' + search_text.length + ' key pressed ' + event.keyCode);
         $('a').each(function() {
