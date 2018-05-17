@@ -27,11 +27,11 @@ $(document).ready(function() {
         console.log(key_pressed.length);
         
         if (event.ctrlKey) {
-            preventDefault();
+            event.preventDefault();
         }
 
         if (event.metaKey && (key_pressed != 91) && (key_pressed != 92)) {
-            preventDefault();
+            event.preventDefault();
         }
         
         if (event.type == 'keydown') {
