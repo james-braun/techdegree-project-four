@@ -3,11 +3,15 @@ element.remove();
 
 const searchElement = document.createElement("input");
 searchElement.setAttribute('type', 'text');
+searchElement.setAttribute('unselectable', 'on');
 searchElement.setAttribute('id', 'search');
 searchElement.setAttribute('placeholder', 'Search');
 searchElement.setAttribute('value', '');
 searchElement.setAttribute('name', 'user_search');
 searchElement.setAttribute('autocomplete', 'off');
+searchElement.setAttribute('autocorrect', 'off');
+searchElement.setAttribute('autocapitalize', 'off');
+searchElement.setAttribute('spellcheck', 'false');
 document.getElementById('search-bar').appendChild(searchElement);
 
 lightbox.option({
@@ -21,7 +25,8 @@ $(document).ready(function() {
     let search_text = '';
     let index = 0;
     let flag = false;
-    $('input').bind("keypress keydown click touchstart", function ( event ) {
+    
+    $('input').bind("touchend keypress keydown click", function ( event ) {
         
         let key_pressed = String.fromCharCode(event.which);
         console.log(key_pressed.length);
@@ -87,13 +92,15 @@ $(document).ready(function() {
         }  
                 
         if (event.type == 'click') {
-            let val = document.getElementById('search').value;
-            index = val.slice(0, document.getElementById('search').selectionStart).length;
+            index = 0;
+            search_text = '';
+            document.getElementById('search').value = '';
         }
        
-        if (event.type == 'touchstart') {
-            let val = document.getElementById('search').value;
-            index = val.slice(0, document.getElementById('search').selectionStart).length;
+        if (event.type == 'touchend') {
+            index = 0;
+            search_text = '';
+            document.getElementById('search').value = '';                        
         }
 
         search_text = search_text.toUpperCase();
