@@ -4,6 +4,7 @@ h1 {
     margin: 4em auto;  
 }
 
+/* styling for input element. */
 #search {
     display: grid;
     margin: 4em auto;
@@ -12,6 +13,7 @@ h1 {
     height: 1.5em;
 }
 
+/* styling for pictures */
 .container {
     max-width: 12.5em;
     margin: 4em auto;
