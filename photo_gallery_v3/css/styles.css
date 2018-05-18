@@ -17,6 +17,7 @@ h1 {
 .container {
     max-width: 12.5em;
     margin: 4em auto;
+    display: -ms-grid;
     display: grid;
     grid-template-columns: 12.5em;
     grid-gap: 4em;
